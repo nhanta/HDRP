@@ -30,5 +30,5 @@ Single-end read data includes [139 obesity samples](https://www.ncbi.nlm.nih.gov
 ## Implementing GATK 
 In the study, this part belongs to the initial data preprocessing and variant calling:
 
-`sh gatk_obesity.sh [gatk directory]`
+`sh gatk_obesity.sh [gatk directory] [input directory] [output directory] [number of threads]`
 
