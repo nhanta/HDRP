@@ -11,7 +11,7 @@
 - `cd samtools-1.1`
 - `make`
 - `export PATH=$PATH:/path to your directory/`
-### Installing other bioinformatics tools
+### Installing other tools
 - `conda install -c bioconda bcftools`
 - `conda install -c bioconda plink`
 - `conda install -c bioconda sra-tools`
