@@ -1,0 +1,22 @@
+PLINK v1.90b6.21 64-bit (19 Oct 2020)
+Options in effect:
+  --bfile obs_ngs.QC
+  --freq
+  --out obs_ngs.QC
+
+Hostname: usth-login.cluster
+Working directory: /work/users/minhnth/obesity/results
+Start time: Sun May 15 10:47:08 2022
+
+Random number seed: 1652586428
+128365 MB RAM detected; reserving 64182 MB for main workspace.
+135 variants loaded from .bim file.
+139 people (88 males, 51 females) loaded from .fam.
+139 phenotype values loaded from .fam.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 139 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.999254.
+--freq: Allele frequencies (founders only) written to obs_ngs.QC.frq .
+
+End time: Sun May 15 10:47:08 2022
