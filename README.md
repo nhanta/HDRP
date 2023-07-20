@@ -32,3 +32,14 @@ In the study, this part belongs to the initial data preprocessing and variant ca
 
 `sh gatk_obesity.sh [gatk directory] [input directory] [output directory] [number of threads]`
 
+Folders can be arranged as follows
+GATK
+|-- Work            
+|   |-- GATK directory                   Include GRCh38 and related data.
+|   `-- GATK 4.2.0.0                     GATK version 4.2.0.0.                 
+|   `-- snpEff/Funcotator                To annotate variants.
+|-- Input directory                      Include 139 samples, type of fastq.
+|-- Output directory                     To generate result files.
+
+
+
