@@ -24,3 +24,4 @@
 - `pip install captum`
 ## Data Preparation 
 Single-end read data includes [139 obesity samples](https://www.ncbi.nlm.nih.gov/Traces/study/?acc=SRP139885&o=acc_s%3Aa) from Ion Torrent.
+- Download pileup data by sratools: `prefetch --option-file SRR_Acc_List.txt`
