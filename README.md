@@ -47,7 +47,7 @@ GATK
 |-- Output directory                     To generate result files.
 ```
 ## The subsequent data preprocessing
-Data after implementing GATK is [transformed to PLINK](https://github.com/nhanta/Advanced_Methods_for_Disease_Risk_Prediction/blob/main/obs_preprocessing.ipynb).
+Data after implementing GATK is [transformed to PLINK](https://github.com/nhanta/Advanced_Methods_for_Disease_Risk_Prediction/blob/main/obs_preprocessing.ipynb). Then, we use PLINK to preprocess data following the PRS criteria:
 ```
 plink \
     --bfile obs_ngs \
@@ -58,5 +58,6 @@ plink \
     --make-bed \
     --out obs_ngs.QC
 ```
-
+Next, we convert PLINK file to one vcf file for training model:
+`plink --bfile [filename prefix] --recode vcf --out [VCF prefix]`
 
