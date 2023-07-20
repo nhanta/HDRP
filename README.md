@@ -59,6 +59,7 @@ plink \
     --out obs_ngs.QC
 ```
 Next, we convert PLINK file to one vcf file for training model:
+
 `plink --bfile [filename prefix] --recode vcf --out [VCF prefix]`
 
 ## Prediction
