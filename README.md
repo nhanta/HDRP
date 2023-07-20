@@ -46,6 +46,17 @@ GATK
 |-- Input directory                      Include 139 samples, type of fastq.
 |-- Output directory                     To generate result files.
 ```
-
+## The subsequent data preprocessing
+Data after implementing GATK is [transformed to PLINK](https://github.com/nhanta/Advanced_Methods_for_Disease_Risk_Prediction/blob/main/obs_preprocessing.ipynb).
+```
+plink \
+    --bfile obs_ngs \
+    --maf 0.05 \
+    --hwe 1e-6 \
+    --geno 0.1 \
+    --write-snplist \
+    --make-bed \
+    --out obs_ngs.QC
+```
 
 
