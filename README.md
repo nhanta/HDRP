@@ -2,11 +2,9 @@
  The study outlines a workflow integrating the Genome Analysis Toolkit (GATK) and PRS to process and analyze data from next-generation sequencing (NGS) platforms. The article also discusses implementing machine learning models and neural networks for predicting disease risk and selecting significant genetic variants.
 ## Tool Installations
 ### Installing GATK 4.2.0.0
-`wget https://github.com/broadinstitute/gatk/releases/download/4.2.0.0/gatk-4.2.0.0.zip
-
-unzip gatk-4.2.0.0.zip -d /path to your directory/
-
-export PATH=$PATH:/path to your directory/`
+- `wget https://github.com/broadinstitute/gatk/releases/download/4.2.0.0/gatk-4.2.0.0.zip`
+- `unzip gatk-4.2.0.0.zip -d /path to your directory/`
+- `export PATH=$PATH:/path to your directory/`
 ### Installing samtools
 - `wget https://sourceforge.net/projects/samtools/files/samtools/`
 - `tar xvjf samtools-1.1.tar.bz2`
