@@ -3,7 +3,9 @@
 ## Tool Installations
 ### Installing GATK 4.2.0.0
 `wget https://github.com/broadinstitute/gatk/releases/download/4.2.0.0/gatk-4.2.0.0.zip
+
 unzip gatk-4.2.0.0.zip -d /path to your directory/
+
 export PATH=$PATH:/path to your directory/`
 ### Installing samtools
 - `wget https://sourceforge.net/projects/samtools/files/samtools/`
