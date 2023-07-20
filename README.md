@@ -8,11 +8,13 @@ unzip gatk-4.2.0.0.zip -d /path to your directory/
 export PATH=$PATH:/path to your directory/
 ```
 ### Installing Samtools
-- `wget https://sourceforge.net/projects/samtools/files/samtools/`
-- `tar xvjf samtools-1.1.tar.bz2`
-- `cd samtools-1.1`
-- `make`
-- `export PATH=$PATH:/path to your directory/`
+```
+wget https://sourceforge.net/projects/samtools/files/samtools/
+tar xvjf samtools-1.1.tar.bz2
+cd samtools-1.1
+make
+export PATH=$PATH:/path to your directory/
+```
 ### Installing Other Tools
 - `conda install -c bioconda bcftools`
 - `conda install -c bioconda plink`
