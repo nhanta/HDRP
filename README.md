@@ -23,7 +23,7 @@
 - `pip install bed-reader`
 - `pip install captum`
 ## Data Preparation 
-Single-end read data includes [139 obesity samples](https://www.ncbi.nlm.nih.gov/Traces/study/?acc=SRP139885&o=acc_s%3Aa) from Ion Torrent. We run some bash script files in gatk folder to download and extract data to fastq.
+Single-end read data includes [139 obesity samples](https://www.ncbi.nlm.nih.gov/Traces/study/?acc=SRP139885&o=acc_s%3Aa) from Ion Torrent. We run bash script files in the gatk folder to download and extract the data to fastq.
 - Download pileup data by sratools: `prefetch --option-file SRR_Acc_List.txt`
 - Decompress sra to fastq: `sh sra_to_fastq.sh`
 - Fix fastq files: `sh fix_fastq.sh`
