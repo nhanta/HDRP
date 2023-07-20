@@ -36,7 +36,7 @@ In the study, this part belongs to the initial data preprocessing and variant ca
 
 `sh gatk_obesity.sh [gatk directory] [input directory] [output directory] [number of threads]`
 
-Folders can be arranged as follows
+Folders can be arranged as follows:
 ```
 GATK
 |-- Work            
