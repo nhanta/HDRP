@@ -60,7 +60,7 @@ plink \
 ```
 Next, we convert PLINK file to one vcf file for training model:
 
-`plink --bfile [filename prefix] --recode vcf --out [VCF prefix]`
+`plink --bfile obs_ngs.QC --recode vcf --out obs_ngs.finish`
 
 ## Prediction
 We use classical machine learning models, such as [Logistic Regression, Decision Tree, and SVM](https://github.com/nhanta/Advanced_Methods_for_Disease_Risk_Prediction/blob/main/lr_dt_svm.py) to select importance features. Besides, we use a [Neural-Network Feature Selection](https://github.com/nhanta/Advanced_Methods_for_Disease_Risk_Prediction/blob/main/lr_dt_svm.py) for that. 
