@@ -3,6 +3,7 @@ from sklearn.feature_selection import RFE
 from sklearn import tree
 from sklearn.metrics import roc_auc_score
 import pandas as pd
+import numpy as np
 from joblib import dump
 
 # Select features using decision tree model
@@ -33,7 +34,7 @@ def rfe_dt(X_train, y_train, X_test, y_test):
     print("Number of Selected Features is: ", iddd[idd])
     ft = features[idd] 
 
-    dump(gr[idd], "../results/d../results/t.joblib")
+    dump(gr[idd], "../results/t.joblib")
     indice = [i for i, x in enumerate(ft) if x]
     
     pd.DataFrame({'features':indice}).to_csv('../results/dt_features.csv')

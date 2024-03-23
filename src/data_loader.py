@@ -4,10 +4,10 @@ from sklearn.preprocessing import StandardScaler
 # Load data
 def load_data(path):
     # Read genotype-phenotype data after subsequent data preprocessing
-    X_train = pd.read_csv('path/X_train.csv').set_index('sample')
-    y_train = pd.read_csv('path/y_train.csv').replace([1,2], [0, 1])['Phenotype']
-    X_test = pd.read_csv('path/X_test.csv').set_index('sample')
-    y_test = pd.read_csv('path/y_test.csv').replace([1,2], [0, 1])['Phenotype']
+    X_train = pd.read_csv(path+ '/X_train.csv').set_index('sample')
+    y_train = pd.read_csv(path+ '/y_train.csv').replace([1,2], [0, 1])['Phenotype']
+    X_test = pd.read_csv(path+ '/X_test.csv').set_index('sample')
+    y_test = pd.read_csv(path+ '/y_test.csv').replace([1,2], [0, 1])['Phenotype']
     
     '''
     # Choose 5 principle components

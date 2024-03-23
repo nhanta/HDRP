@@ -3,7 +3,6 @@ from data_loader import load_data
 #import models.lr as lr
 import models.dt as dt
 #import models.svm as svm
-import models.xgboost as xgb
 
 import time
 
