@@ -3,11 +3,7 @@ import pandas as pd
 import numpy as np
 from math import sqrt
 from scipy.special import ndtri
-from sklearn.metrics import classification_report, accuracy_score, \
-                            confusion_matrix, precision_score, auc, \
-                            recall_score, f1_score,roc_auc_score, roc_curve, \
-                            RocCurveDisplay, PrecisionRecallDisplay, \
-                            precision_recall_curve, matthews_corrcoef, make_scorer
+from sklearn.metrics import confusion_matrix,roc_auc_score, RocCurveDisplay, PrecisionRecallDisplay
 
 def eval (y_test, pred):
 

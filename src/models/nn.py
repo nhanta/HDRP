@@ -3,14 +3,8 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 import torch
 import torch.nn as nn
-
-from captum.attr import IntegratedGradients
-from captum.attr import LayerConductance
-from captum.attr import NeuronConductance
-
-import matplotlib
 import matplotlib.pyplot as plt
-from sklearn.metrics import accuracy_score, confusion_matrix, precision_score, auc, recall_score, f1_score,roc_auc_score, roc_curve, RocCurveDisplay, PrecisionRecallDisplay, precision_recall_curve, make_scorer
+from sklearn.metrics import accuracy_score,  precision_score, recall_score, f1_score,roc_auc_score,  RocCurveDisplay, PrecisionRecallDisplay, precision_recall_curve
 
 class Dataset(torch.utils.data.Dataset):
     def __init__(self, x,y):
@@ -57,7 +51,7 @@ def visualize_importances(feature_names, importances, title="Average Feature Imp
         plt.tick_params(axis='x', pad=15)
         plt.xlabel(axis_title)
         plt.title(title)
-        importance.savefig('feature_importance.png')
+        importance.savefig('../results/feature_importance.png')
 
 # Get Top K Least Important Features and Retrain
 def make_new_dataset(features_to_be_dropped, X_train_after, X_test_after, y_train, y_test):

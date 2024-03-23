@@ -32,7 +32,7 @@ if __name__ == '__main__':
     y_test = pd.read_csv('data/y_test.csv').replace([1,2], [0, 1])['Phenotype']
     print("")
     
-    # Choose 5 principle components
+    '''
     k=5
 
     train_pca, test_pca = pca.get_pca (X_train_init.iloc[:, 0:-1], X_test_init.iloc[:, 0:-1], k)
@@ -42,6 +42,9 @@ if __name__ == '__main__':
 
     X_train = pd.concat([X_train_init.reset_index(drop=True), train_pca.reset_index(drop=True)], axis = 1)
     X_test = pd.concat([X_test_init.reset_index(drop=True), test_pca.reset_index(drop=True)], axis = 1)
+    '''
+    # Choose 5 principle components
+    
 
     X_train_after = X_train
     X_test_after = X_test
