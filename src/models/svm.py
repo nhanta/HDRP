@@ -7,12 +7,14 @@ from joblib import dump
 import pandas as pd
 import numpy as np
 import shap
-
+'''
 def shap_importance_getter(clf, X, y):
     explainer = shap.Explainer(clf)
     shap_values = explainer.shap_values(X, y)[0]
     importance = np.abs(shap_values).mean(0)
     return importance
+
+'''
 
 # Select features using decision tree model
 def rfe_svc(X_train, y_train, X_test, y_test):
@@ -23,13 +25,12 @@ def rfe_svc(X_train, y_train, X_test, y_test):
     gr = []
 
     for i in range(1, len(X_train[0])):
-        rfe = RFE(clf, n_features_to_select=i, importance_getter = shap_importance_getter(X_train, y_train))
+        rfe = RFE(clf, n_features_to_select=i)
         rfe.fit_transform(X_train, y_train)
-
         # Reduce X to the selected features.
         X_train_reduce = rfe.transform(X_train)
         X_test_reduce = rfe.transform(X_test)
-
+        
         # Decision tree model
         roc_auc, grid = train_svc(X_train_reduce, y_train, X_test_reduce, y_test)
         print("Number of Selected Features", i, "AUC", roc_auc)

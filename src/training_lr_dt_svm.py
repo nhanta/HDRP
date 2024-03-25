@@ -1,8 +1,8 @@
 # Import packages
 from data_loader import load_data
-#import models.lr as lr
+import models.lr as lr
 import models.dt as dt
-#import models.svm as svm
+import models.svm as svm
 
 import time
 
@@ -34,7 +34,7 @@ if __name__ == '__main__':
     print("Elapsed time: ", elapsed_time)
     print("")
     '''
-
+    '''
     print("Decision-Tree RFE")
     # Start timer
     start_time = time.time()
@@ -43,8 +43,8 @@ if __name__ == '__main__':
     # Calculate elapsed time
     elapsed_time = end_time - start_time
     print("Elapsed time: ", elapsed_time)
-
     '''
+    
     print("SVM RFE")
     # Start timer
     start_time = time.time()
@@ -53,7 +53,7 @@ if __name__ == '__main__':
     # Calculate elapsed time
     elapsed_time = end_time - start_time
     print("Elapsed time: ", elapsed_time)
-    '''
+
     
 
     

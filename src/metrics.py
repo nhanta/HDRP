@@ -5,7 +5,10 @@ from math import sqrt
 from scipy.special import ndtri
 from sklearn.metrics import confusion_matrix,roc_auc_score, RocCurveDisplay, PrecisionRecallDisplay
 
-def eval (y_test, pred):
+def eval (model, X_test, y_test):
+
+    # Load and fit model
+    pred = model.predict(X_test)
 
     # Find AUC score
     roc_auc = roc_auc_score (y_test, pred)

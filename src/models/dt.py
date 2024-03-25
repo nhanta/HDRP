@@ -34,7 +34,7 @@ def rfe_dt(X_train, y_train, X_test, y_test):
     print("Number of Selected Features is: ", iddd[idd])
     ft = features[idd] 
 
-    dump(gr[idd], "../results/t.joblib")
+    dump(gr[idd], "../results/dt.joblib")
     indice = [i for i, x in enumerate(ft) if x]
     
     pd.DataFrame({'features':indice}).to_csv('../results/dt_features.csv')
@@ -46,7 +46,7 @@ def train_dt(X_train, y_train, X_test, y_test):
 
     grid = {'criterion': ["gini", "entropy"], 
             'splitter': ["best", "random"],
-            'max_features': ["auto", "sqrt","log2"],
+            'max_features': ["sqrt","log2"],
             'max_depth' : [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]}
     
     clf = tree.DecisionTreeClassifier(random_state=7)

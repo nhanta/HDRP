@@ -16,7 +16,8 @@ make
 export PATH=$PATH:/path to your directory/
 ```
 ### Installing Other Tools
-- `conda install -c bioconda bcftools`
+- `conda install -c conda-forge r-base=4.1.3`
+- `conda install samtools bcftools`
 - `conda install -c bioconda plink`
 - `conda install -c bioconda sra-tools`
 - `conda install -c bioconda fastqc`

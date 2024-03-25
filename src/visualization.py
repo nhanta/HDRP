@@ -1,10 +1,6 @@
 import matplotlib.pyplot as plt
-from sklearn.metrics import RocCurveDisplay   
-from sklearn.metrics import classification_report, accuracy_score, \
-                            confusion_matrix, precision_score, auc, \
-                            recall_score, f1_score,roc_auc_score, roc_curve, \
-                            RocCurveDisplay, PrecisionRecallDisplay, \
-                            precision_recall_curve, matthews_corrcoef, make_scorer    
+from sklearn.metrics import roc_curve, RocCurveDisplay, PrecisionRecallDisplay
+
 # Draw ROC curve 
 def draw_roc_curve (model, X_test, y_test):  
     pred_prob = model.predict_proba(X_test)
