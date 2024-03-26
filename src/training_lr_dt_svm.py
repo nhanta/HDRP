@@ -23,7 +23,7 @@ if __name__ == '__main__':
     print("")
 
     
-    # Read genotype-phenotype data 
+    # Load genotype-phenotype data 
     X_train, y_train, X_test, y_test, feature_names, _ = load_data('../data/obesity')
     '''
     print("Logistic regression")

@@ -23,7 +23,7 @@ def rfe_dt(X_train, y_train, X_test, y_test):
         X_test_reduce = rfe.transform(X_test)
         # Decision tree model
         roc_auc, dt_grid = train_dt(X_train_reduce, y_train, X_test_reduce, y_test)
-        print(i, roc_auc)
+        print("Number of features:", i, "AUC: ", roc_auc)
         features.append(rfe.support_)
         best_auc.append(roc_auc)
         gr.append(dt_grid)
@@ -34,6 +34,7 @@ def rfe_dt(X_train, y_train, X_test, y_test):
     print("Number of Selected Features is: ", iddd[idd])
     ft = features[idd] 
 
+    # Save the model
     dump(gr[idd], "../results/dt.joblib")
     indice = [i for i, x in enumerate(ft) if x]
     

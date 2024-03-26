@@ -3,12 +3,11 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score,roc_auc_score, RocCurveDisplay, PrecisionRecallDisplay, precision_recall_curve
-from scipy import stats
 import torch
 import torch.nn as nn
 from captum.attr import IntegratedGradients
-import stratification.pca as pca
 import models.nn as nn
+from data_loader import load_data
 
 if __name__ == '__main__':
     print("")
@@ -25,41 +24,11 @@ if __name__ == '__main__':
     print("Import data may take several minutes, please wait...")
     print("")
     
-    # Read genotype-phenotype data after subsequent data preprocessing
-    X_train_init = pd.read_csv('data/X_train.csv').set_index('sample')
-    y_train = pd.read_csv('data/y_train.csv').replace([1,2], [0, 1])['Phenotype']
-    X_test_init = pd.read_csv('data/X_test.csv').set_index('sample')
-    y_test = pd.read_csv('data/y_test.csv').replace([1,2], [0, 1])['Phenotype']
-    print("")
-    
-    '''
-    k=5
-
-    train_pca, test_pca = pca.get_pca (X_train_init.iloc[:, 0:-1], X_test_init.iloc[:, 0:-1], k)
-
-    train_pca = pd.DataFrame(train_pca, columns = ["PC" + str(i) for i in range(k)])
-    test_pca = pd.DataFrame(test_pca, columns = ["PC" + str(i) for i in range(k)])
-
-    X_train = pd.concat([X_train_init.reset_index(drop=True), train_pca.reset_index(drop=True)], axis = 1)
-    X_test = pd.concat([X_test_init.reset_index(drop=True), test_pca.reset_index(drop=True)], axis = 1)
-    '''
-    # Choose 5 principle components
-    
-
-    X_train_after = X_train
-    X_test_after = X_test
-
-    feature_names = list(X_train_after.columns)
-    len_features = len(feature_names)
-
-    scaler = StandardScaler()
-    X_train = scaler.fit_transform(X_train)
-    X_test = scaler.transform(X_test)
-
-    # Convert all to numpy
-    y_train = y_train.to_numpy()
-    y_test = y_test.to_numpy()
-
+    # Load genotype-phenotype data 
+    X_train, y_train, X_test, y_test, feature_names, _ = load_data('../data/obesity')
+    d = len(feature_names)
+    X_train_ft = pd.DataFrame(data = X_train, columns = feature_names)
+    X_test_ft = pd.DataFrame(data = X_test, columns = feature_names)
     
     # Define the train and test dataloader
     train_loader = torch.utils.data.DataLoader(nn.Dataset(X_train, y_train))
@@ -70,12 +39,12 @@ if __name__ == '__main__':
 
     torch.manual_seed(1)
 
-    model = nn.Obesity_Model()
+    model = nn.Model(d)
     criterion = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
     total_loss, total_acc = list(),list()
-    feat_imp = np.zeros(X_train.shape[1])
-    num_epochs = 500
+    feat_imp = np.zeros(d)
+    num_epochs = 10
 
     for epoch in range(num_epochs):
         losses = 0 
@@ -95,7 +64,7 @@ if __name__ == '__main__':
             print("Epoch:", str(epoch+1), "\tLoss:", total_loss[-1])
 
     # Save the model
-    torch.save(model.state_dict(), 'obesity_model.pt')
+    torch.save(model.state_dict(), '../results/nn_model.pt')
     print("Save the model")
 
     model.eval()
@@ -144,13 +113,13 @@ if __name__ == '__main__':
     all_scores = []
 
     print("Find the best accuracy")
-    for i in range(0, 141):
+    for i in range(0, d):
         k_features=i
         print("For ",k_features, " features" )
         features_to_be_dropped = [b for (a,b) in sorted(zip(feat_imp,feature_names))][0:k_features]
-        train_loader, test_loader = nn.make_new_dataset(features_to_be_dropped, X_train_after, X_test_after, y_train, y_test)
-        Obesity_Model = nn.define_model(k_features, len_features)
-        trained_model = nn.train_model(Obesity_Model, train_loader)
+        train_loader, test_loader = nn.make_new_dataset(features_to_be_dropped, X_train_ft, X_test_ft, y_train, y_test)
+        Model = nn.define_model(k_features, d)
+        trained_model = nn.train_model(Model, train_loader)
         acr, pre_score, rc_score, f1, roc_auc = nn.test_results(trained_model,test_loader)
         best_accuracy.append(acr)
         all_scores.append([acr, pre_score, rc_score, f1, roc_auc])
@@ -167,9 +136,9 @@ if __name__ == '__main__':
     print (ft)
 
     print("********************************** SAVING **********************************")
-    pd.DataFrame({'IFeatures':ft}).to_csv('IFeat.csv')
-    pd.DataFrame({'eval':best_accuracy}).to_csv('eval.csv')
-    pd.DataFrame({'all_score':all_scores}).to_csv('all_scores.csv')
+    pd.DataFrame({'IFeatures':ft}).to_csv('../results/nn_IFeat.csv')
+    pd.DataFrame({'eval':best_accuracy}).to_csv('../results/nn_evaluation.csv')
+    pd.DataFrame({'all_score':all_scores}).to_csv('../results/nn_all_scores.csv')
 
     print("")
     print("********************************* FINISHED *********************************")

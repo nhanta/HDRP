@@ -19,17 +19,18 @@ class Dataset(torch.utils.data.Dataset):
         return len(self.x)
 
 # Code a neural network with the nn module imported into the class
-class Obesity_Model(nn.Module):
-    def __init__(self):
+class Model(nn.Module):
+    def __init__(self, d):
         super().__init__()
-        self.linear1 = nn.Linear(141, 280)
+        self.d = d
+        self.linear1 = nn.Linear(d, 2*d)
         self.sigmoid1 = nn.Sigmoid()
-        self.linear2 = nn.Linear(280,560)
+        self.linear2 = nn.Linear(2*d, 4*d)
         self.sigmoid2 = nn.Sigmoid()
-        self.linear3 = nn.Linear(560,2)
+        self.linear3 = nn.Linear(4*d, 2)
         self.softmax = nn.Softmax(dim=1)
         
-    def forward(self,x):
+    def forward(self, x):
         lin1_out = self.linear1(x)
         sigmoid1_out = self.sigmoid1(lin1_out)
         lin2_out = self.linear2(sigmoid1_out)
@@ -63,23 +64,24 @@ def make_new_dataset(features_to_be_dropped, X_train_after, X_test_after, y_trai
     X_train_drop = scaler.fit_transform(X_train_drop)
     X_test_drop = scaler.transform(X_test_drop)
 
-    # define the train and test dataloader
+    # Define the train and test dataloader
     train_loader = torch.utils.data.DataLoader(Dataset(X_train_drop, y_train))
     test_loader = torch.utils.data.DataLoader(Dataset(X_test_drop, y_test))
     
-    return train_loader,test_loader
+    return train_loader, test_loader
 
 def define_model(k_features, len_features):
     torch.manual_seed(1)
-    # code a neural network with the nn module imported into the class
-    class Obesity_Model(nn.Module):
+    # Code a neural network with the nn module imported into the class
+    class Model(nn.Module):
         def __init__(self):
             super().__init__()
-            self.linear1 = nn.Linear(len_features-k_features, 280) # since features have been dropped chaneg input layer
+            d = len_features-k_features
+            self.linear1 = nn.Linear(d, 2*d) # Since features have been dropped chaneg input layer
             self.sigmoid1 = nn.Sigmoid()
-            self.linear2 = nn.Linear(280, 560)
+            self.linear2 = nn.Linear(2*d, 4*d)
             self.sigmoid2 = nn.Sigmoid()
-            self.linear3 = nn.Linear(560, 2)
+            self.linear3 = nn.Linear(4*d, 2)
             self.softmax = nn.Softmax(dim=1)
 
         def forward(self,x):
@@ -90,15 +92,15 @@ def define_model(k_features, len_features):
             lin3_out = self.linear3(sigmoid2_out)
             softmax_out = self.softmax(lin3_out)
             return softmax_out
-    return Obesity_Model
+    return Model
 
-def train_model(Obesity_Model, train_loader):
-    model = Obesity_Model()
+def train_model(Model, train_loader):
+    model = Model()
     criterion = torch.nn.CrossEntropyLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
     total_loss, total_acc = list(),list()
 
-    num_epochs = 500
+    num_epochs = 10
 
     for epoch in range(num_epochs):
         losses = 0 
