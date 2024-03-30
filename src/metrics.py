@@ -3,6 +3,7 @@ import pandas as pd
 from math import sqrt
 from scipy.special import ndtri
 from sklearn.metrics import confusion_matrix,roc_auc_score, RocCurveDisplay, PrecisionRecallDisplay
+import torch
 
 def eval (model, X_test, y_test):
 
@@ -19,6 +20,34 @@ def eval (model, X_test, y_test):
 
     return pd.DataFrame({'Sensitivity': [ss, ss_ci], 'Specificity': [sp, sp_ci], \
                         'Accuracy': [acc, acc_ci], 'MCC': [mcc, mcc_ci], 'AUC': roc_auc})
+    
+def eval_nn (model, test_loader):
+
+    # Load and fit model
+    model.eval()
+    y_pred = []
+    y_obs = []
+
+    for idx, (x,y) in enumerate(test_loader):
+        with torch.no_grad():
+            x,y = x.float(), y.type(torch.LongTensor)
+            pred = model(x)
+            preds_class = torch.argmax(pred)
+            y_pred.append(preds_class.numpy())
+            y_obs.append(y.numpy()[0])
+   
+    # Find AUC score
+    roc_auc = roc_auc_score (y_obs, y_pred)
+    TN, FP, FN, TP = confusion_matrix(y_obs, y_pred).ravel()
+    print('TN', TN, 'FP', FP, 'FN', FN, 'TP', TP)
+    print("Roc_AUC: ", roc_auc)
+    ss, sp, acc, mcc, ss_ci, sp_ci, mcc_ci, acc_ci = measure (TN, FP, FN, TP, 0.95)
+
+    return pd.DataFrame({'Sensitivity': [ss, ss_ci], 'Specificity': [sp, sp_ci], \
+                        'Accuracy': [acc, acc_ci], 'MCC': [mcc, mcc_ci], 'AUC': roc_auc})    
+
+
+    
 
 def proportion_confidence_interval(r, n, z):
     """Compute confidence interval for a proportion.

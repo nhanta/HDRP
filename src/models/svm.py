@@ -9,7 +9,7 @@ import pandas as pd
 import numpy as np
 
 # Select features using decision tree model
-def rfe_svc(X_train, y_train, X_test, y_test):
+def rfe_svc(X_train, y_train, X_test, y_test, output):
     clf = SVC(kernel="linear", random_state=7)
     best_auc = list()
     features = []
@@ -39,10 +39,10 @@ def rfe_svc(X_train, y_train, X_test, y_test):
     ft = features[idd] 
 
     # Save the model
-    dump(gr[idd], "../results/svc.joblib")
+    dump(gr[idd], output + "/svc.joblib")
     indice = [i for i, x in enumerate(ft) if x]
     
-    pd.DataFrame({'features':indice}).to_csv('../results/svc_features.csv')
+    pd.DataFrame({'features':indice}).to_csv(output + "/svc_features.csv")
 
 def train_svc(X_train, y_train, X_test, y_test):
     # Create svm cross validation

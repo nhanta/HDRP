@@ -40,7 +40,7 @@ class Model(nn.Module):
         return softmax_out
 
 # Print importances and visualize distribution
-def visualize_importances(feature_names, importances, title="Average Feature Importances", plot=True, axis_title="Features"):
+def visualize_importances(feature_names, importances, output,title="Average Feature Importances", plot=True, axis_title="Features"):
     print(title)
     for i in range(len(feature_names)):
         print(feature_names[i], ": ", '%.3f'%(importances[i]))
@@ -52,32 +52,31 @@ def visualize_importances(feature_names, importances, title="Average Feature Imp
         plt.tick_params(axis='x', pad=15)
         plt.xlabel(axis_title)
         plt.title(title)
-        importance.savefig('../results/feature_importance.png')
+        importance.savefig(output + "/feature_importance.png")
 
 # Get Top K Least Important Features and Retrain
-def make_new_dataset(features_to_be_dropped, X_train_after, X_test_after, y_train, y_test):
-    
-    X_train_drop = X_train_after.drop(features_to_be_dropped, axis=1)
-    X_test_drop = X_test_after.drop(features_to_be_dropped, axis=1)
+def make_new_dataset(indice_features, X_train, X_test, y_train, y_test):
+    X_train_reduce = X_train[:, indice_features]
+    X_test_reduce = X_test[:, indice_features]
 
     scaler = StandardScaler()
-    X_train_drop = scaler.fit_transform(X_train_drop)
-    X_test_drop = scaler.transform(X_test_drop)
+    X_train_reduce = scaler.fit_transform(X_train_reduce)
+    X_test_reduce = scaler.transform(X_test_reduce)
 
     # Define the train and test dataloader
-    train_loader = torch.utils.data.DataLoader(Dataset(X_train_drop, y_train))
-    test_loader = torch.utils.data.DataLoader(Dataset(X_test_drop, y_test))
+    train_loader = torch.utils.data.DataLoader(Dataset(X_train_reduce, y_train))
+    test_loader = torch.utils.data.DataLoader(Dataset(X_test_reduce, y_test))
     
     return train_loader, test_loader
 
-def define_model(k_features, len_features):
+def define_model(k_features):
     torch.manual_seed(1)
     # Code a neural network with the nn module imported into the class
     class Model(nn.Module):
         def __init__(self):
             super().__init__()
-            d = len_features-k_features
-            self.linear1 = nn.Linear(d, 2*d) # Since features have been dropped chaneg input layer
+            d = k_features
+            self.linear1 = nn.Linear(d, 2*d) # Since features have been dropped change input layer
             self.sigmoid1 = nn.Sigmoid()
             self.linear2 = nn.Linear(2*d, 4*d)
             self.sigmoid2 = nn.Sigmoid()
@@ -100,7 +99,7 @@ def train_model(Model, train_loader):
     optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
     total_loss, total_acc = list(),list()
 
-    num_epochs = 10
+    num_epochs = 200
 
     for epoch in range(num_epochs):
         losses = 0 

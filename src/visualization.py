@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import roc_curve, RocCurveDisplay, PrecisionRecallDisplay
 
 # Draw ROC curve 
-def draw_roc_curve (model, X_test, y_test):  
+def draw_roc_curve (model, X_test, y_test, output):  
     pred_prob = model.predict_proba(X_test)
     fpr, tpr, thresh = roc_curve(y_test, pred_prob[:,1], pos_label=1)
     # Roc curve for tpr = fpr 
@@ -20,5 +20,5 @@ def draw_roc_curve (model, X_test, y_test):
     plt.ylabel('True Positive rate')
 
     plt.legend(loc='best')
-    plt.savefig('ROC',dpi=300)
+    plt.savefig(output + '/ROC',dpi=300)
     plt.show()

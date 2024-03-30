@@ -3,10 +3,10 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score
 import pandas as pd
 import numpy as np
-from joblib import dump, load
+from joblib import dump
 
 # Training model
-def train_lr (X_train, X_test, y_train, y_test, feature_names):
+def train_lr (X_train, X_test, y_train, y_test, feature_names, output):
       # Create logistic regression cross validation
 
       grid = {
@@ -24,7 +24,7 @@ def train_lr (X_train, X_test, y_train, y_test, feature_names):
       # Make predictions using the optimised parameters
       lg_pred = lg_grid.predict(X_test)
       # Save model
-      dump(lg_grid, "../results/lg.joblib")
+      dump(lg_grid, output + "/lg.joblib")
       # Get AUC
       roc_auc = round(roc_auc_score (y_test, lg_pred), 3)
 
@@ -39,6 +39,6 @@ def train_lr (X_train, X_test, y_train, y_test, feature_names):
       var = coef[coef[0] != 0]
       print("Head of coefficients", coef.sort_values(by = 0, ascending=False).head())
       print("Logistic (ElasticNet) picked " + str(sum(coef[0] != 0)) + " variables and eliminated the other " +  str(sum(coef[0] == 0)) + " variables")
-      var.to_csv('../results/log_features.csv')
+      var.to_csv(output + "/log_features.csv")
 
      

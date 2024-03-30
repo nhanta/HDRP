@@ -7,7 +7,7 @@ import numpy as np
 from joblib import dump
 
 # Select features using decision tree model
-def rfe_dt(X_train, y_train, X_test, y_test):
+def rfe_dt(X_train, y_train, X_test, y_test, output):
     
     rfe_dt = tree.DecisionTreeClassifier(random_state=7)
     best_auc = list()
@@ -35,10 +35,10 @@ def rfe_dt(X_train, y_train, X_test, y_test):
     ft = features[idd] 
 
     # Save the model
-    dump(gr[idd], "../results/dt.joblib")
+    dump(gr[idd], output + "/dt.joblib")
     indice = [i for i, x in enumerate(ft) if x]
     
-    pd.DataFrame({'features':indice}).to_csv('../results/dt_features.csv')
+    pd.DataFrame({'features':indice}).to_csv(output + "/dt_features.csv")
 
 
 def train_dt(X_train, y_train, X_test, y_test):
