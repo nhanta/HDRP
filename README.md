@@ -24,6 +24,7 @@ export PATH=$PATH:/path to your directory/
 - `conda install -c bioconda trimmomatic`
 - `conda install -c bioconda bwa`
 - `conda install -c bioconda tabix`
+- `conda install bioconda::picard`
 - `conda install vcftools`
 - `pip install bed-reader`
 - `pip install captum`

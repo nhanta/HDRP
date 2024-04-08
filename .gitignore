@@ -2,3 +2,8 @@ logs
 imputation_output
 obs_preprocessing.ipynb
 command.txt
+vcf
+wes
+diabete_type2
+leukemia
+output_results.ipynb

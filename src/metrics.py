@@ -2,25 +2,23 @@ from __future__ import print_function, division
 import pandas as pd
 from math import sqrt
 from scipy.special import ndtri
-from sklearn.metrics import confusion_matrix,roc_auc_score, RocCurveDisplay, PrecisionRecallDisplay
+from sklearn.metrics import confusion_matrix, roc_auc_score
 import torch
-
+                 
 def eval (model, X_test, y_test):
-
     # Load and fit model
     pred = model.predict(X_test)
-
     # Find AUC score
     roc_auc = roc_auc_score (y_test, pred)
     
     TN, FP, FN, TP = confusion_matrix(y_test, pred).ravel()
     print('TN', TN, 'FP', FP, 'FN', FN, 'TP', TP)
     print("Roc_AUC: ", roc_auc)
-    ss, sp, acc, mcc, ss_ci, sp_ci, mcc_ci, acc_ci = measure (TN, FP, FN, TP, 0.95)
+    ss, sp, acc, ss_ci, sp_ci, acc_ci = measure (TN, FP, FN, TP, 0.95)
 
     return pd.DataFrame({'Sensitivity': [ss, ss_ci], 'Specificity': [sp, sp_ci], \
-                        'Accuracy': [acc, acc_ci], 'MCC': [mcc, mcc_ci], 'AUC': roc_auc})
-    
+                        'Accuracy': [acc, acc_ci], 'AUC': roc_auc})
+
 def eval_nn (model, test_loader):
 
     # Load and fit model
@@ -41,13 +39,10 @@ def eval_nn (model, test_loader):
     TN, FP, FN, TP = confusion_matrix(y_obs, y_pred).ravel()
     print('TN', TN, 'FP', FP, 'FN', FN, 'TP', TP)
     print("Roc_AUC: ", roc_auc)
-    ss, sp, acc, mcc, ss_ci, sp_ci, mcc_ci, acc_ci = measure (TN, FP, FN, TP, 0.95)
+    ss, sp, acc, ss_ci, sp_ci, acc_ci = measure (TN, FP, FN, TP, 0.95)
 
     return pd.DataFrame({'Sensitivity': [ss, ss_ci], 'Specificity': [sp, sp_ci], \
-                        'Accuracy': [acc, acc_ci], 'MCC': [mcc, mcc_ci], 'AUC': roc_auc})    
-
-
-    
+                        'Accuracy': [acc, acc_ci], 'AUC': roc_auc})    
 
 def proportion_confidence_interval(r, n, z):
     """Compute confidence interval for a proportion.
@@ -115,30 +110,30 @@ def sensitivity_and_specificity_with_confidence_intervals(TP, FP, FN, TN, alpha=
     # Compute specificity using method described in [1]
     specificity_point_estimate = TN/(TN + FP)
     specificity_confidence_interval = proportion_confidence_interval(TN, TN + FP, z)
-    # Compute MCC
-    mcc = (TP*TN - FP*FN)/sqrt((TP+FP)*(TP+FN)*(TN+FP)*(TN+FN))
-    mcc_confidence_interval = proportion_confidence_interval(TP*TN - FP*FN, sqrt((TP+FP)*(TP+FN)*(TN+FP)*(TN+FN)), z)
+    
     # Compute accuracy
     acc = (TP +TN)/(TP+FP+TN+FN)
     acc_confidence_interval = proportion_confidence_interval(TP +TN, TP+FP+TN+FN, z)
 
-    return sensitivity_point_estimate, specificity_point_estimate, sensitivity_confidence_interval, specificity_confidence_interval, \
-    acc, acc_confidence_interval, mcc, mcc_confidence_interval
+    return sensitivity_point_estimate, specificity_point_estimate, \
+        sensitivity_confidence_interval, specificity_confidence_interval, \
+        acc, acc_confidence_interval \
 
+        
 # Get sensitivity, specificity, accuracy, and Matthews's correlation coefficient.
+
 def measure (TP, FP, FN, TN, a):
     sensitivity_point_estimate, specificity_point_estimate, \
         sensitivity_confidence_interval, specificity_confidence_interval, \
-        acc, acc_confidence_interval, mcc, mcc_confidence_interval \
+        acc, acc_confidence_interval \
         = sensitivity_and_specificity_with_confidence_intervals(TP, FP, FN, TN, alpha=a)
-    print("Sensitivity: %f, Specificity: %f, Accuracy: %f, MCC: %f" %(sensitivity_point_estimate, specificity_point_estimate, acc, mcc))
+ 
+    print("Sensitivity: %f, Specificity: %f, Accuracy: %f" %(sensitivity_point_estimate, specificity_point_estimate, acc))
     print("alpha = %f CI for sensitivity:"%a, sensitivity_confidence_interval)
     print("alpha = %f CI for specificity:"%a, specificity_confidence_interval)
     print("alpha = %f CI for accuracy:"%a, acc_confidence_interval)
-    print("alpha = %f CI for MCC:"%a, mcc_confidence_interval)
+    #print("alpha = %f CI for MCC:"%a, mcc_confidence_interval)
     print("")
-    return (sensitivity_point_estimate, specificity_point_estimate, acc, mcc, \
+    return (sensitivity_point_estimate, specificity_point_estimate, acc, \
             sensitivity_confidence_interval, specificity_confidence_interval, \
-            acc_confidence_interval, mcc_confidence_interval)
-
-    
+            acc_confidence_interval)

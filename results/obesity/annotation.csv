@@ -1,0 +1,9 @@
+ID,CHROM,POS,REF,ALT,ANN[*].GENE,ANN[*].EFFECT
+rs6445486,chr3,52472475,A,G,NISCH,intron_variant
+rs34749134,chr4,88958337,C,T,FAM13A,intron_variant
+rs3817334,chr11,47629441,C,T,MTCH2,intron_variant
+rs657538,chr12,5135527,T,C,KCNA5-LINC02443,intergenic_region
+rs79090609,chr14,61441381,G,A,PRKCH,intron_variant
+rs1957894,chr14,61441393,T,G,PRKCH,intron_variant
+rs147340331,chr16,6114440,T,C,RBFOX1,intron_variant
+rs1421085,chr16,53767042,T,C,FTO,intron_variant

@@ -136,7 +136,7 @@ def test_results(model, test_loader):
     f1 = f1_score (y_obs, y_pred)
     pre_score = precision_score(y_obs, y_pred)
     rc_score = recall_score (y_obs, y_pred)
-    pre, recall, _ = precision_recall_curve(y_obs, y_pred)
+    #pre, recall, _ = precision_recall_curve(y_obs, y_pred)
     roc_auc = round(roc_auc_score (y_obs, y_pred), 3)
         
     print("accuracy:", acr,  "precision_score:", 
