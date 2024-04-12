@@ -1,0 +1,19 @@
+PLINK v2.00a5.10LM 64-bit Intel (5 Jan 2024)
+Options in effect:
+  --genotyping-rate
+  --vcf ../data/obesity/imputation_output/biallelic_for_phasing.vcf.gz
+
+Hostname: usth-login.cluster
+Working directory: /work/users/minhnth/projects/HDRP/src
+Start time: Tue Apr  9 21:59:43 2024
+
+Random number seed: 1712674783
+128365 MiB RAM detected, ~111339 available; reserving 64182 MiB for main
+workspace.
+Using up to 104 threads (change this with --threads).
+--vcf: 137 variants scanned.
+Error: chrX is present in the input file, but no sex information was provided;
+rerun this import with --psam or --update-sex.  --split-par may also be
+appropriate.
+
+End time: Tue Apr  9 21:59:44 2024

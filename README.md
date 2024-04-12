@@ -1,5 +1,5 @@
-# Advanced Methods for Disease Risk Prediction
- The study outlines a workflow integrating the Genome Analysis Toolkit (GATK) and PRS to process and analyze data from next-generation sequencing (NGS) platforms. The article also discusses implementing machine learning models and neural networks for predicting disease risk and selecting significant genetic variants.
+# An Integrated Method for Disease Risk Prediction Using Next-Generation Sequencing Data
+This study presents a preprocessing methodology tailored for next-generation sequencing (NGS) data, integrating advanced computational tools. Leveraging the inherent advantages of NGS technology, this methodology ensures the acquisition of high-quality data essential for model training. Consequently, machine learning algorithms and neural networks are deployed to accurately predict disease risk and identify significant genetic variants.
 ## Tool Installations
 ### Installing GATK 4.2.0.0
 ```
