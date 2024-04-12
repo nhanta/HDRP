@@ -49,21 +49,8 @@ GATK
 |-- Input directory                      Include 139 samples, type of fastq.
 |-- Output directory                     To generate result files.
 ```
-## Subsequent data preprocessing
-Data after implementing GATK is [transformed to PLINK](https://github.com/nhanta/Advanced_Methods_for_Disease_Risk_Prediction/blob/main/obs_preprocessing.ipynb). Then, we use PLINK to preprocess data following the PRS criteria:
-```
-plink \
-    --bfile obs_ngs \
-    --maf 0.05 \
-    --hwe 1e-6 \
-    --geno 0.1 \
-    --write-snplist \
-    --make-bed \
-    --out obs_ngs.QC
-```
-Next, we convert PLINK file to one vcf file for training model:
-
-`plink --bfile obs_ngs.QC --recode vcf --out obs_ngs.finish`
+## Target data preprocessing
+...
 
 ## Prediction
 We use classical machine learning models, such as [Logistic Regression, Decision Tree, and SVM](https://github.com/nhanta/Advanced_Methods_for_Disease_Risk_Prediction/blob/main/lr_dt_svm.py) to select importance features. Besides, we use a [Neural-Network Feature Selection](https://github.com/nhanta/Advanced_Methods_for_Disease_Risk_Prediction/blob/main/lr_dt_svm.py) for that. 
