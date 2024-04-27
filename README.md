@@ -34,8 +34,8 @@ Single-end read data includes [139 obesity samples](https://www.ncbi.nlm.nih.gov
 - Download pileup data by sratools: `prefetch --option-file SRR_Acc_List.txt`
 - Decompress sra to fastq: `sh sra_to_fastq.sh`
 - Fix fastq files: `sh fix_fastq.sh`
-## Implementing GATK 
-In the study, this part belongs to the **initial data preprocessing** and **variant calling**:
+## Raw data preprocessing
+Implement GATK for **variant calling**:
 
 `sh gatk_obesity.sh [gatk directory] [input directory] [output directory] [number of threads]`
 
@@ -50,7 +50,50 @@ GATK
 |-- Output directory                     To generate result files.
 ```
 ## Target data preprocessing
-...
+The reference panel can be obtained from the [Hg38 reference panel](https://cgl.gi.ucsc.edu/data/giraffe/construction/). For guidance on preprocessing the reference panel, please consult the [Imputation beagle tutorial](https://github.com/adrianodemarino/Imputation_beagle_tutorial).
+```
+bash imputation\target_imputation.sh \
+[hg38 reference genome] \
+../../data/obesity \
+../../data/obesity/imputation_output/  \
+[reference panel directory] \
+[genetic map directory] \
+numthreads
+```
 
 ## Prediction
-We use classical machine learning models, such as [Logistic Regression, Decision Tree, and SVM](https://github.com/nhanta/Advanced_Methods_for_Disease_Risk_Prediction/blob/main/lr_dt_svm.py) to select importance features. Besides, we use a [Neural-Network Feature Selection](https://github.com/nhanta/Advanced_Methods_for_Disease_Risk_Prediction/blob/main/lr_dt_svm.py) for that. 
+
+### Data preparing
+Run [obs_preparation.ipynb](src/obs_preparation.ipynb) to take training and testing data.
+### Feature selection
+Train models RFE and SFE:
+```
+python training_rfe_sfe.py \
+../data/obesity \
+../results/obesity
+```
+
+Select important features for neural network:
+```
+python training_fs_nn.py \
+../data/obesity \
+../results/obesity
+```
+Select important features for other methods:
+```
+python fs_rfe_sfe.py \
+../data/obesity \
+../results/obesity
+```
+### Obesity risk prediction
+```
+python prediction.py \
+../data/obesity \
+../results/obesity
+```
+### Evaluate performance
+```
+python evaluation.py \
+../results/obesity \
+../results/obesity
+```

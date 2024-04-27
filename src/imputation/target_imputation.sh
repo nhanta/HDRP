@@ -1,5 +1,5 @@
 #!/bin/bash
-ref_genome_dir=$1 # /work/users/minhnth/gatk/hg38.fasta
+ref_genome_dir=$1 
 input_dir=$2 # ../data/obesity
 output_dir=$3 # ../data/obesity/imputation_output/
 ref_panel=$4
@@ -14,6 +14,9 @@ bcftools norm \
 -f ${ref_genome_dir} \
 ${input_dir}/snps.dbSnp.vcf \
 -o ${output_dir}/biallelic_snps.vcf
+
+# Create a output directory
+mkdir ../data/obesity/imputation_output/
 
 # A comma-separated string of chrs to keep
 chrs=$(echo chr{1..22} chrX | tr ' ' ',')
