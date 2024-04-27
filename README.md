@@ -64,34 +64,36 @@ numthreads
 ## Prediction
 
 ### Data preparing
-Run [obs_preparation.ipynb](src/obs_preparation.ipynb) to take training and testing data.
+Execute [obs_preparation.ipynb](src/obs_preparation.ipynb) to preprocess the training and testing data.
 ### Feature selection
-Train models RFE and SFE:
+Utilize the following commands to train models RFE and SFE:
 ```
 python training_rfe_sfe.py \
 ../data/obesity \
 ../results/obesity
 ```
 
-Select important features for neural network:
+Select significant features for the neural network using:
 ```
 python training_fs_nn.py \
 ../data/obesity \
 ../results/obesity
 ```
-Select important features for other methods:
+For other methods, select important features with:
 ```
 python fs_rfe_sfe.py \
 ../data/obesity \
 ../results/obesity
 ```
 ### Obesity risk prediction
+Execute the following command for obesity risk prediction:
 ```
 python prediction.py \
 ../data/obesity \
 ../results/obesity
 ```
 ### Evaluate performance
+Evaluate the performance using:
 ```
 python evaluation.py \
 ../results/obesity \
