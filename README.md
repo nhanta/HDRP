@@ -34,7 +34,7 @@ Single-end read data includes [139 obesity samples](https://www.ncbi.nlm.nih.gov
 - Download pileup data by sratools: `prefetch --option-file SRR_Acc_List.txt`
 - Decompress sra to fastq: `sh sra_to_fastq.sh`
 - Fix fastq files: `sh fix_fastq.sh`
-## Raw data preprocessing
+## Raw Data Preprocessing
 Implement GATK for **variant calling**:
 
 `sh gatk_obesity.sh [gatk directory] [input directory] [output directory] [number of threads]`
@@ -49,13 +49,13 @@ GATK
 |-- Input directory                      Include 139 samples, type of fastq.
 |-- Output directory                     To generate result files.
 ```
-## Target data preprocessing
+## Target Data Preprocessing
 The reference panel can be obtained from the [Hg38 reference panel](https://cgl.gi.ucsc.edu/data/giraffe/construction/). For guidance on preprocessing the reference panel, please consult the [Imputation beagle tutorial](https://github.com/adrianodemarino/Imputation_beagle_tutorial).
 ```
 bash imputation\target_imputation.sh \
 [hg38 reference genome] \
-../../data/obesity \
-../../data/obesity/imputation_output/  \
+../data/obesity \
+../data/obesity/imputation_output/  \
 [reference panel directory] \
 [genetic map directory] \
 numthreads
@@ -63,9 +63,9 @@ numthreads
 
 ## Prediction
 
-### Data preparing
+### Data Preparing
 Execute [obs_preparation.ipynb](src/obs_preparation.ipynb) to preprocess the training and testing data.
-### Feature selection
+### Feature Selection
 Utilize the following commands to train models RFE and SFE:
 ```
 python training_rfe_sfe.py \
@@ -85,14 +85,14 @@ python fs_rfe_sfe.py \
 ../data/obesity \
 ../results/obesity
 ```
-### Obesity risk prediction
+### Obesity Risk Prediction
 Execute the following command for obesity risk prediction:
 ```
 python prediction.py \
 ../data/obesity \
 ../results/obesity
 ```
-### Evaluate performance
+### Evaluate Performance
 Evaluate the performance using:
 ```
 python evaluation.py \
