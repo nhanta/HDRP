@@ -30,7 +30,7 @@ export PATH=$PATH:/path to your directory/
 - `pip install captum`
 - `pip install torch`
 ## Data Preparation 
-Single-end read data includes [139 obesity samples](https://www.ncbi.nlm.nih.gov/Traces/study/?acc=SRP139885&o=acc_s%3Aa) from Ion Torrent. We run [bash script files](https://github.com/nhanta/Advanced_Methods_for_Disease_Risk_Prediction/tree/main/gatk) to download data, and extract the data to fastq.
+Single-end read data includes [139 obesity samples](https://www.ncbi.nlm.nih.gov/Traces/study/?acc=SRP139885&o=acc_s%3Aa) from Ion Torrent. We run [bash script files](src/gatk/) to download data, and extract the data to fastq.
 - Download pileup data by sratools: `prefetch --option-file SRR_Acc_List.txt`
 - Decompress sra to fastq: `sh sra_to_fastq.sh`
 - Fix fastq files: `sh fix_fastq.sh`
