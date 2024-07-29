@@ -35,7 +35,7 @@ if __name__ == '__main__':
     
     # Read genotype-phenotype data
     X_train, y_train, X_test, y_test, feature_names, _ = load_data(args.input)
-
+    
     print("Logistic Regression")
     # Load the Logistic Regression Model
     lg_model = load(args.output + "/lg.joblib")
@@ -101,7 +101,7 @@ if __name__ == '__main__':
     draw_roc_curve_nn (nn_model, test_loader, 'NN RFE', args.output)
     
     print("")
-  
+    
     print("KNN SFE")
     indice_features = pd.read_csv(args.output+ "/sfe_knn_features.csv")['features']
     sfe_knn_features = [feature_names[i] for i in indice_features]

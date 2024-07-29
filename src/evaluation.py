@@ -16,7 +16,7 @@ input_folder = args.input
 output_excel = args.output + '/ALL_REPORT.csv'
 
 
-headerList = ['Model', 'Sensitivity', 'Specificity', 'Accuracy', 'AUC', 'running_time', 'n_feature']
+headerList = ['Model', 'Sensitivity', 'Specificity', 'Accuracy', 'MCC', 'AUC', 'running_time', 'n_feature']
 save_frame = pd.DataFrame(columns=headerList)
 list_dir = os.listdir(input_folder)
 
@@ -39,10 +39,11 @@ for i in range(0, len(list_dir)):
         sensitivity = rows_data[1]
         specificity = rows_data[2]
         accuracy = rows_data[3]
-        auc = rows_data[4]
+        mcc = rows_data[4]
+        auc = rows_data[5]
         running_time = ""
         n_feature = ""
-        new_row = {'Model': model_name, 'Sensitivity': sensitivity, 'Specificity': specificity, 'Accuracy': accuracy,
+        new_row = {'Model': model_name, 'Sensitivity': sensitivity, 'Specificity': specificity, 'Accuracy': accuracy, 'MCC': mcc,
                    'AUC': auc, 'running_time': running_time, 'n_feature': n_feature}
         save_frame.loc[len(save_frame)] = new_row
 
