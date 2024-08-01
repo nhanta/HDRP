@@ -1,0 +1,52 @@
+ID,CHROM,POS,REF,ALT,AF,DP,ANN[*].GENE,ANN[*].GENEID,ANN[*].EFFECT,ANN[*].IMPACT,ANN[*].FEATURE,ANN[*].FEATUREID,ANN[*].BIOTYPE,ANN[*].HGVS_C,ANN[*].HGVS_P,Phenotype
+rs1061728,chr1,78889911,A,G,0.853205,.,ADGRL4,ADGRL4,3_prime_UTR_variant,MODIFIER,transcript,NM_022159.4,protein_coding,c.*1243T>C,.,Type 2 diabetes
+rs4512713,chr1,204247340,C,T,0.76859,.,PLEKHA6,PLEKHA6,intron_variant,MODIFIER,transcript,NM_014935.5,protein_coding,c.1920+25G>A,.,Claudication in type 2 diabetes
+rs2251987,chr2,178701419,T,G,0.994231,.,TTN,TTN,intron_variant,MODIFIER,transcript,NM_001267550.2,protein_coding,c.30598+109A>C,.,Type 2 diabetes
+rs895432,chr2,232892987,A,G,0.990385,.,NGEF,NGEF,synonymous_variant,LOW,transcript,NM_019850.3,protein_coding,c.1053T>C,p.Ile351Ile,Type 2 diabetes
+rs13018934,chr2,233799983,G,A,0.685256,.,MROH2A,MROH2A,intron_variant,MODIFIER,transcript,NM_001367507.1,protein_coding,c.1449+84G>A,.,End-stage renal disease vs. no ESRD in type 2 diabetes (T2D)
+rs1483711,chr4,64280237,T,G,0.980769,.,TECRL,TECRL,intron_variant,MODIFIER,transcript,NM_001010874.5,protein_coding,c.965-38A>C,.,Coronary artery disease in type 2 diabetes (CAD in T2D)
+rs2544600,chr5,80437260,T,C,0.852564,.,ZFYVE16,ZFYVE16,missense_variant,MODERATE,transcript,NM_001105251.4,protein_coding,c.575T>C,p.Ile192Thr,Triglyceride levels in individuals without type 2 diabetes
+rs3128853,chr6,29397010,C,T,0.99359,.,OR12D2,OR12D2,missense_variant,MODERATE,transcript,NM_013936.3,protein_coding,c.311C>T,p.Ser104Phe,Youth-onset type 2 diabetes (T2D)
+rs763046,chr6,36745486,A,G,0.837179,.,CPNE5,CPNE5,synonymous_variant,LOW,transcript,NM_020939.2,protein_coding,c.1230T>C,p.Cys410Cys,Chronic kidney disease (CKD) in type 2 diabetes (T2D)
+rs3814481,chr7,1548755,A,G,0.703846,.,TMEM184A,TMEM184A,intron_variant,MODIFIER,transcript,NM_001097620.2,protein_coding,c.645-67T>C,.,Triglyceride levels in individuals with type 2 diabetes
+rs1584614,chr7,32490324,G,C,0.784615,.,LSM5,LSM5,synonymous_variant,LOW,transcript,NM_012322.3,protein_coding,c.42C>G,p.Pro14Pro,NAFLD in type 2 diabetes (T2D)
+rs2392572,chr7,38429095,C,T,0.908333,.,AMPH,AMPH,intron_variant,MODIFIER,transcript,NM_001635.4,protein_coding,c.1182+747G>A,.,Chronic kidney disease in type 2 diabetes
+rs6463449,chr7,47813900,C,T,0.995513,.,"PKD1L1,C7orf69","PKD1L1,C7orf69","intron_variant,intron_variant","MODIFIER,MODIFIER","transcript,transcript","NM_138295.4,NR_161269.1","protein_coding,pseudogene","c.7173+31G>A,n.297+331C>T",".,.",Type 2 diabetes (T2D)
+rs11784716,chr8,12015214,A,G,0.998077,.,DEFB134-DEFB130A,DEFB134-DEFB130A.3,intergenic_region,MODIFIER,intergenic_region,DEFB134-DEFB130A.3,.,n.12015214A>G,.,Type 2 diabetes (T2D) adj BMI
+rs6468093,chr8,30069784,C,G,0.998077,.,SARAF,SARAF,synonymous_variant,LOW,transcript,NM_016127.6,protein_coding,c.558G>C,p.Ala186Ala,Microalbuminuria in type 2 diabetes (T2D)
+rs6991513,chr8,53832978,C,G,0.81859,.,ATP6V1H,ATP6V1H,splice_region_variant&intron_variant,LOW,transcript,NM_015941.4,protein_coding,c.216+6G>C,.,eGFRcreat (serum creatinine) in type 2 diabetes
+rs10780871,chr9,70168692,T,C,0.908974,.,"MAMDC2,MAMDC2-AS1","MAMDC2,MAMDC2-AS1","intron_variant,intron_variant","MODIFIER,MODIFIER","transcript,transcript","NM_153267.5,NR_040076.1","protein_coding,pseudogene","c.1405-10T>C,n.221+2346A>G",".,.",Cardiovascular disease in type 2 diabetes (T2D)
+rs2045732,chr9,97432124,T,C,0.663462,.,TDRD7,TDRD7,missense_variant,MODERATE,transcript,NM_014290.3,protein_coding,c.449T>C,p.Val150Ala,Chronic kidney disease in type 2 diabetes
+rs1949755,chr9,104504493,C,G,0.859615,.,OR13F1,OR13F1,synonymous_variant,LOW,transcript,NM_001004485.1,protein_coding,c.231C>G,p.Ala77Ala,Type 2 diabetes (T2D)
+rs3739512,chr9,131009433,T,G,0.688462,.,LAMC3,LAMC3,missense_variant,MODERATE,transcript,NM_006059.4,protein_coding,c.219T>G,p.His73Gln,Type 2 diabetes (T2D)
+rs3818581,chr9,131590011,T,C,0.803846,.,RAPGEF1,RAPGEF1,intron_variant,MODIFIER,transcript,NM_198679.1,protein_coding,c.2273-35A>G,.,Coronary artery disease in type 2 diabetes (CAD in T2D)
+rs2797491,chr10,5746645,G,C,0.841667,.,TASOR2,TASOR2,missense_variant,MODERATE,transcript,NM_001321783.1,protein_coding,c.3224G>C,p.Arg1075Pro,Peripheral vascular disease in type 2 diabetes
+rs1613448,chr10,118594398,T,C,0.995513,.,PRLHR,PRLHR,missense_variant,MODERATE,transcript,NM_004248.3,protein_coding,c.847A>G,p.Ile283Val,Type 2 diabetes (T2D)
+rs892336,chr11,5581449,T,C,0.696795,.,OR52B6,OR52B6,synonymous_variant,LOW,transcript,NM_001005162.2,protein_coding,c.573T>C,p.Asn191Asn,Macroalbuminuria in type 2 diabetes (T2D)
+rs2956109,chr11,34916718,C,T,0.849359,.,"PDHX,APIP","PDHX,APIP","synonymous_variant,upstream_gene_variant","LOW,MODIFIER","transcript,transcript","NM_003477.3,NM_015957.4","protein_coding,protein_coding","c.63C>T,c.-434G>A","p.Pro21Pro,.",Type 2 diabetes (T2D)
+rs10838693,chr11,47329002,G,C,0.583974,.,"MYBPC3,MADD","MYBPC3,MADD","downstream_gene_variant,intron_variant","MODIFIER,MODIFIER","transcript,transcript","NM_000256.3,NM_003682.4","protein_coding,protein_coding","c.*2741C>G,c.4840-44G>C",".,.",Triglyceride levels in individuals with type 2 diabetes
+rs4646823,chr11,67666945,C,A,0.898718,.,ALDH3B2,ALDH3B2,5_prime_UTR_variant,MODIFIER,transcript,NM_001031615.2,protein_coding,c.-10G>T,.,Cardiovascular disease in type 2 diabetes (T2D)
+rs2306180,chr12,21560468,T,C,0.744872,.,GYS2,GYS2,missense_variant,MODERATE,transcript,NM_021957.4,protein_coding,c.1087A>G,p.Met363Val,Mild obesity-related type 2 diabetes
+rs7132431,chr12,55320988,G,A,0.873718,.,OR6C1,OR6C1,missense_variant,MODERATE,transcript,NM_001005182.1,protein_coding,c.389G>A,p.Cys130Tyr,Peripheral vascular disease in type 2 diabetes
+rs1284467,chr12,57511904,A,G,0.99359,.,"MIR6758,DDIT3,MARS1","MIR6758,DDIT3,MARS1","upstream_gene_variant,downstream_gene_variant,intron_variant","MODIFIER,MODIFIER,MODIFIER","transcript,transcript,transcript","NR_106816.1,NM_001195053.1,NM_004990.4","pseudogene,protein_coding,protein_coding","n.-784A>G,c.*4905T>C,c.1539+36A>G",".,.,.",Chronic kidney disease (CKD) and diabetic nephropathy in type 2 diabetes
+rs6488867,chr12,123309475,T,C,0.992949,.,SBNO1,SBNO1,intron_variant,MODIFIER,transcript,NM_001167856.3,protein_coding,c.3537+14A>G,.,Peripheral vascular disease in type 2 diabetes
+rs3812896,chr13,41328803,T,C,0.930128,.,NAA16,NAA16,synonymous_variant,LOW,transcript,NM_024561.5,protein_coding,c.771T>C,p.Asn257Asn,Type 2 diabetes (T2D)
+rs1042631,chr15,88859008,T,C,0.810256,.,ACAN,ACAN,synonymous_variant,LOW,transcript,NM_001369268.1,protein_coding,c.6423T>C,p.Leu2141Leu,End-stage renal disease vs. no ESRD in type 2 diabetes (T2D)
+rs8064024,chr16,4805278,A,G,0.667308,.,"GLYR1,ROGDI","GLYR1,ROGDI","synonymous_variant,upstream_gene_variant","LOW,MODIFIER","transcript,transcript","NM_032569.4,NM_024589.2","protein_coding,protein_coding","c.1620T>C,c.-2707T>C","p.Ser540Ser,.",Severe insulin-deficient type 2 diabetes
+rs1376041,chr16,57655971,T,C,0.791667,.,ADGRG1,ADGRG1,synonymous_variant,LOW,transcript,NM_001145771.3,protein_coding,c.996T>C,p.Thr332Thr,Type 2 diabetes (T2D) adj BMI
+rs2236375,chr17,2040594,T,C,0.821154,.,"DPH1,OVCA2","DPH1,OVCA2","synonymous_variant,upstream_gene_variant","LOW,MODIFIER","transcript,transcript","NM_001383.5,NM_080822.3","protein_coding,protein_coding","c.996T>C,c.-1454T>C","p.Pro332Pro,.",Stroke in type 2 diabetes
+rs61075345,chr17,18790964,G,A,0.866026,.,TVP23B,TVP23B,missense_variant,MODERATE,transcript,NM_016078.6,protein_coding,c.164G>A,p.Gly55Glu,Microalbuminuria in type 2 diabetes (T2D)
+rs6587220,chr17,19328765,T,C,0.964103,.,EPN2,EPN2,missense_variant,MODERATE,transcript,NM_014964.4,protein_coding,c.1202T>C,p.Val401Ala,Youth-onset type 2 diabetes (T2D)
+rs8068049,chr17,31856838,T,C,0.930769,.,"COPRS,UTP6","COPRS,UTP6","missense_variant,downstream_gene_variant","MODERATE,MODIFIER","transcript,transcript","NM_018405.4,NM_018428.3","protein_coding,protein_coding","c.127A>G,c.*6521A>G","p.Ser43Gly,.",Severe insulin-deficient type 2 diabetes
+rs4602,chr17,41528069,G,C,0.763462,.,KRT19,KRT19,missense_variant,MODERATE,transcript,NM_002276.5,protein_coding,c.179C>G,p.Ala60Gly,Type 2 diabetes (with no history of pregnancy)
+rs1156287,chr17,54999438,G,A,0.851282,.,STXBP4,STXBP4,missense_variant,MODERATE,transcript,NM_178509.6,protein_coding,c.274G>A,p.Gly92Arg,Coronary heart disease or stroke or peripheral vascular disease in type 2 diabetes (T2D)
+rs2382647,chr17,74370556,C,A,0.982051,.,GPR142,GPR142,missense_variant,MODERATE,transcript,NM_181790.1,protein_coding,c.394C>A,p.His132Asn,Microalbuminuria in type 2 diabetes (T2D)
+rs12970083,chr18,24130357,C,T,0.998077,.,TTC39C,TTC39C,synonymous_variant,LOW,transcript,NM_001135993.2,protein_coding,c.1563C>T,p.Asn521Asn,Microalbuminuria in type 2 diabetes (T2D)
+rs8085482,chr18,63659368,A,G,0.996154,.,SERPINB3,SERPINB3,intron_variant,MODIFIER,transcript,NM_006919.3,protein_coding,c.351+31T>C,.,Youth-onset type 2 diabetes (T2D)
+rs803665,chr20,11810360,C,T,0.879487,.,LINC00687,LINC00687,non_coding_transcript_exon_variant,MODIFIER,transcript,NR_110635.1,pseudogene,n.151G>A,.,Peripheral artery disease in type 2 diabetes (T2D)
+rs2424217,chr20,18490336,A,G,0.979487,.,RBBP9,RBBP9,intron_variant,MODIFIER,transcript,NM_006606.3,protein_coding,c.334+59T>C,.,End-stage renal disease vs. no ESRD in type 2 diabetes (T2D)
+rs910152,chr20,62836546,G,C,0.941026,.,"TCFL5,COL9A3","TCFL5,COL9A3","downstream_gene_variant,intron_variant","MODIFIER,MODIFIER","transcript,transcript","NM_006602.4,NM_001853.4","protein_coding,protein_coding","c.*5429C>G,c.1603+14G>C",".,.",Macroalbuminuria in type 2 diabetes (T2D)
+rs4809287,chr20,63310395,A,G,0.983974,.,COL20A1,COL20A1,synonymous_variant,LOW,transcript,NM_020882.3,protein_coding,c.1278A>G,p.Gly426Gly,Youth-onset type 2 diabetes (T2D)
+rs4818947,chr21,44637631,A,C,0.833974,.,"KRTAP10-10,TSPEAR","KRTAP10-10,TSPEAR","missense_variant,intron_variant","MODERATE,MODIFIER","transcript,transcript","NM_181688.3,NM_144991.3","protein_coding,protein_coding","c.214A>C,c.83-69626T>G","p.Thr72Pro,.",Triglyceride levels in individuals without type 2 diabetes
+rs5760472,chr22,24557603,A,G,0.98141,.,"GUCD1,SNRPD3","GUCD1,SNRPD3","upstream_gene_variant,intron_variant","MODIFIER,MODIFIER","transcript,transcript","NM_001284251.1,NM_001278656.1","protein_coding,protein_coding","c.-1778T>C,c.-18-54A>G",".,.",Microalbuminuria in type 2 diabetes (T2D)
+rs1476576,chr22,30264528,A,C,0.826923,.,OSM,OSM,intron_variant,MODIFIER,transcript,NM_020530.6,protein_coding,c.178-64T>G,.,Type 2 diabetes (T2D) adj BMI
